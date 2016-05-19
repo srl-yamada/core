@@ -233,7 +233,7 @@ class View
   {
     $clean_room = function($__file_name, array $__data)
     {
-      extract($__data);
+      extract($__data, EXTR_REFS);
 
       // Capture the view output
       ob_start();
