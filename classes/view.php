@@ -425,12 +425,18 @@ class View
   {
     // strip the extension from it
     $pathinfo = pathinfo($file);
+    // test
+    print_r('<br /> path_info');
+    var_dump($pathinfo);
     if ( ! empty($pathinfo['extension']))
     {
       $this->extension = $pathinfo['extension'];
       $file = substr($file, 0, strlen($this->extension)*-1 - 1);
     }
 
+    // test
+    print_r('<br /> in set_fillname');
+    var_dump($this->request_paths);
     // set find_file's one-time-only search paths
     \Finder::instance()->flash($this->request_paths);
 
@@ -439,6 +445,10 @@ class View
     {
       throw new \FuelException('The requested view could not be found: '.\Fuel::clean_path($file).'.'.$this->extension);
     }
+
+    // test
+    print_r('<br /> result of finder::search');
+    var_dump($path);
 
     // Store the file path locally
     $this->file_name = $path;
