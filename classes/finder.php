@@ -232,8 +232,6 @@ class Finder
 	 */
 	public function prep_path($path)
 	{
-		// test
-		print_r('in prep_path(), $path = '. $path);
 		$path = str_replace(array('/', '\\'), DS, $path);
 		return rtrim($path, DS).DS;
 	}
@@ -375,6 +373,9 @@ class Finder
 		// Merge in the flash paths then reset the flash paths
 		$paths = array_merge($this->flash_paths, $paths);
 		$this->clear_flash();
+
+        // test
+		print_r('to prep_path(), $dir = '. $dir);
 
 		$file = $this->prep_path($dir).$file.$ext;
 		$cache_id .= $file;
