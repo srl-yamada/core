@@ -93,6 +93,7 @@ class View
    */
   public static function forge($file = null, $data = null, $auto_filter = null)
   {
+    print_r('<br /> cwd = '. getcwd());
     return new static($file, $data, $auto_filter);
   }
 
@@ -111,6 +112,7 @@ class View
     if (is_object($data) === true)
     {
       $data = get_object_vars($data);
+      print_r('<br /> $data = '.var_dump($data));
     }
     elseif ($data and ! is_array($data))
     {
@@ -118,8 +120,10 @@ class View
     }
 
     $this->auto_filter = is_null($filter) ? \Config::get('security.auto_filter_output', true) : $filter;
+    print_r('<br /> $this->auto_filter = '.var_dump($this->auto_filter));
 
     $this->filter_closures = \Config::get('filter_closures', true);
+    print_r('<br /> $this->filter_closures = '.var_dump($this->filter_closures));
 
     if ($file !== null)
     {
