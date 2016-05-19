@@ -367,8 +367,8 @@ class Finder
 		}
 
 		// test
-		print_r('$this->flash_path = '. $this->flash_paths);
-		print_r('$paths = '. $paths);
+		print_r('$this->flash_path = '. var_dump($this->flash_paths));
+		print_r('$paths = '. var_dump($paths));
 
 		// Merge in the flash paths then reset the flash paths
 		$paths = array_merge($this->flash_paths, $paths);
@@ -455,7 +455,7 @@ class Finder
 		if (array_key_exists($cache_id, $this->cached_paths))
 		{
 			// test
-			print_r('$this->cached_paths = '. $this->cached_paths);
+			print_r('$this->cached_paths = '. var_dump($this->cached_paths));
 			return $this->cached_paths[$cache_id];
 		}
 
