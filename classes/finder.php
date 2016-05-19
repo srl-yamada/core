@@ -232,6 +232,8 @@ class Finder
 	 */
 	public function prep_path($path)
 	{
+		// test
+		print_r('in prep_path(), $path = '. $path);
 		$path = str_replace(array('/', '\\'), DS, $path);
 		return rtrim($path, DS).DS;
 	}
@@ -332,6 +334,9 @@ class Finder
 			$cache_id = 'S.';
 		}
 
+		// test
+		print_r('$cache_id = '. $cache_id);
+
 		$paths = array();
 
 		// If a filename contains a :: then it is trying to be found in a namespace.
@@ -357,10 +362,15 @@ class Finder
 			// get extra information of the active request
 			if (class_exists('Request', false) and ($request = \Request::active()))
 			{
+				print_r('get extra information');
 				$request->module and $cache_id .= $request->module;
 				$paths = array_merge($request->get_paths(), $paths);
 			}
 		}
+
+		// test
+		print_r('$this->flash_path = '. $this->flash_paths);
+		print_r('$paths = '. $paths);
 
 		// Merge in the flash paths then reset the flash paths
 		$paths = array_merge($this->flash_paths, $paths);
@@ -369,8 +379,13 @@ class Finder
 		$file = $this->prep_path($dir).$file.$ext;
 		$cache_id .= $file;
 
+		// test
+		print_r('after prep_path, $cache_id = '. $cache_id);
+
 		if ($cache and $cached_path = $this->from_cache($cache_id))
 		{
+			// test
+			print_r('cache found');
 			return $cached_path;
 		}
 
@@ -438,6 +453,8 @@ class Finder
 		$cache_id = md5($cache_id);
 		if (array_key_exists($cache_id, $this->cached_paths))
 		{
+			// test
+			print_r('$this->cached_paths = '. $this->cached_paths);
 			return $this->cached_paths[$cache_id];
 		}
 
