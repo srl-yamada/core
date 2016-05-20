@@ -442,7 +442,9 @@ class View
     print_r('<br /> in set_fillname');
     var_dump($this->request_paths);
     // set find_file's one-time-only search paths
-    \Finder::instance()->flash($this->request_paths);
+//    \Finder::instance()->flash($this->request_paths);
+    print_r('<br /> before flash, getcwd = '. getcwd());
+    \Finder::instance()->flash(getcwd());
 
     // locate the view file
     if (($path = \Finder::search('views', $file, '.'.$this->extension, false, false)) === false)
