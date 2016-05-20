@@ -355,14 +355,21 @@ class Finder
 		}
 		else
 		{
+			// test
+			print_r('$this->paths = '. var_dump($this->paths));
 			$paths = $this->paths;
 
 			// get extra information of the active request
 			if (class_exists('Request', false) and ($request = \Request::active()))
 			{
-				print_r('get extra information');
 				$request->module and $cache_id .= $request->module;
 				$paths = array_merge($request->get_paths(), $paths);
+
+				// test
+				print_r('get extra information');
+				print_r('marged $paths = '. var_dump($paths));
+				print_r('$request = '. var_dump($request));
+				print_r('$request.get_paths = '. var_dump($request->get_paths()));
 			}
 		}
 
