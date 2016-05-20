@@ -333,6 +333,7 @@ class Finder
 		}
 
 		// test
+		var_dump(debug_backtrace());
 		print_r('$cache_id = '. $cache_id);
 
 		$paths = array();
