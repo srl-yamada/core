@@ -188,6 +188,9 @@ class Finder
 	 */
 	public function flash($paths)
 	{
+		// test
+		print_r('in flash, $paths = '. var_dump($paths));
+		var_dump(debug_backtrace());
 		if ( ! is_array($paths))
 		{
 			$paths = array($paths);
@@ -335,7 +338,7 @@ class Finder
 		}
 
 		// test
-		var_dump(debug_backtrace());
+//		var_dump(debug_backtrace());
 		print_r('$cache_id = '. $cache_id);
 
 		$paths = array();
