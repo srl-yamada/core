@@ -394,6 +394,9 @@ class Finder
 		{
 			$file_path = $dir.$file;
 
+			// test
+			print_r('$file_path = '. var_dump($file_path));
+
 			if (is_file($file_path))
 			{
 				if ( ! $multiple)
@@ -410,6 +413,9 @@ class Finder
 		{
 			$this->add_to_cache($cache_id, $found);
 		}
+
+		// test
+		print_r('$found = '. var_dump($found));
 
 		return $found;
 	}
