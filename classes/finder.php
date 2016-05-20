@@ -325,6 +325,8 @@ class Finder
 			class_exists('Module', false) and $cachekey .= implode('|', \Module::loaded());
 			$cachekey .= '|';
 			class_exists('Package', false) and $cachekey .= implode('|', \Package::loaded());
+			// test
+			print_r('$cachekey = '. var_dump($cachekey));
 			$cache_id = md5($cachekey).'.';
 		}
 		else
